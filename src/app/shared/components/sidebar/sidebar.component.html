@@ -1,0 +1,37 @@
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">N</div>
+        <span>NeXora</span>
+    </div>
+
+    <nav class="nav-menu">
+
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-item">
+            <span class="icon">▦</span>
+            <span>Dashboard</span>
+        </a>
+
+        <a routerLink="/devices" routerLinkActive="active" class="nav-item">
+            <span class="icon">◇</span>
+            <span>Devices</span>
+        </a>
+
+        <a routerLink="/commands" routerLinkActive="active" class="nav-item">
+            <span class="icon">⌘</span>
+            <span>Commands</span>
+        </a>
+
+        <a routerLink="/activity" routerLinkActive="active" class="nav-item">
+            <span class="icon">◷</span>
+            <span>Activity</span>
+        </a>
+
+    </nav>
+
+    <div class="system-status">
+        <span class="status-dot"></span>
+        <span>System Operational</span>
+    </div>
+
+</aside>

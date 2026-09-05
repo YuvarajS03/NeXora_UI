@@ -1,0 +1,58 @@
+<div class="page-container">
+
+    <div class="page-header">
+        <div>
+            <p class="eyebrow">DEVICE MANAGEMENT</p>
+            <h1>Devices</h1>
+            <p class="subtitle">View and manage all registered devices</p>
+        </div>
+
+        <button class="primary-btn">
+            + Add Device
+        </button>
+    </div>
+
+    <div class="devices-card">
+
+        <div class="card-header">
+            <h2>All Devices</h2>
+            <span class="count-badge">{{ devices.length }} Devices</span>
+        </div>
+
+        <div *ngIf="loading" class="empty-state">
+            Loading devices...
+        </div>
+
+        <table *ngIf="!loading && devices.length > 0">
+            <thead>
+                <tr>
+                    <th>DEVICE ID</th>
+                    <th>DEVICE NAME</th>
+                    <th>SERIAL NUMBER</th>
+                    <th>LOCATION</th>
+                    <th>STATUS</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let device of devices">
+                    <td>{{ device.deviceId }}</td>
+                    <td>{{ device.name }}</td>
+                    <td>{{ device.serialNumber }}</td>
+                    <td>{{ device.location }}</td>
+                    <td>
+                        <span class="status" [ngClass]="device.status.toLowerCase()">
+                            {{ device.status }}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="!loading && devices.length === 0" class="empty-state">
+            No devices found. Add your first device.
+        </div>
+
+    </div>
+
+</div>

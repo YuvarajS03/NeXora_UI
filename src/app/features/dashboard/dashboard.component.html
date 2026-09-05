@@ -1,0 +1,154 @@
+<div class="app-layout">
+
+    <main class="main-content">
+
+        <header class="page-header">
+
+            <div>
+                <p class="welcome">DEVICE MANAGEMENT PLATFORM</p>
+
+                <h1>Device Overview</h1>
+
+                <p class="subtitle">
+                    Monitor and manage your connected devices
+                </p>
+            </div>
+
+            <button class="add-device-btn" (click)="openAddDeviceModal()">
+                + Add Device
+            </button>
+
+        </header>
+
+
+        <!-- STATISTICS -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <span class="stat-label">Total Devices</span>
+                <div class="stat-value">{{ stats.total }}</div>
+                <span class="stat-description">
+                    Registered devices
+                </span>
+            </div>
+
+            <div class="stat-card online-card">
+                <span class="stat-label">Online</span>
+                <div class="stat-value">{{ stats.online }}</div>
+                <span class="stat-description">
+                    Currently active
+                </span>
+            </div>
+
+            <div class="stat-card offline-card">
+                <span class="stat-label">Offline</span>
+                <div class="stat-value">{{ stats.offline }}</div>
+                <span class="stat-description">
+                    Disconnected devices
+                </span>
+            </div>
+
+            <div class="stat-card maintenance-card">
+                <span class="stat-label">Maintenance</span>
+                <div class="stat-value">{{ stats.maintenance }}</div>
+                <span class="stat-description">
+                    Requires attention
+                </span>
+            </div>
+
+        </section>
+
+
+        <!-- DEVICES TABLE -->
+
+        <section class="devices-card">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Devices</h2>
+                    <p>Manage all registered devices</p>
+                </div>
+
+                <span class="device-count">
+                    {{ devices.length }} Devices
+                </span>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>DEVICE ID</th>
+                            <th>DEVICE NAME</th>
+                            <th>SERIAL NUMBER</th>
+                            <th>LOCATION</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr *ngIf="loading">
+                            <td colspan="6" class="empty-state">
+                                Loading devices...
+                            </td>
+                        </tr>
+
+                        <tr *ngFor="let device of devices">
+
+                            <td class="device-id">
+                                {{ device.deviceId }}
+                            </td>
+
+                            <td>
+                                <strong>{{ device.name }}</strong>
+                            </td>
+
+                            <td>{{ device.serialNumber }}</td>
+
+                            <td>{{ device.location }}</td>
+
+                            <td>
+                                <span class="status-badge" [ngClass]="device.status.toLowerCase()">
+                                    {{ device.status }}
+                                </span>
+                            </td>
+
+                            <td>
+                                <button class="delete-button" (click)="deleteDevice(device._id)">
+                                    Delete
+                                </button>
+                            </td>
+
+                        </tr>
+
+                        <tr *ngIf="!loading && devices.length === 0">
+                            <td colspan="6" class="empty-state">
+                                No devices found. Add your first device.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- MODAL -->
+
+<app-add-device-modal *ngIf="showAddDeviceModal" (close)="closeAddDeviceModal()" (deviceCreated)="createDevice($event)">
+</app-add-device-modal>

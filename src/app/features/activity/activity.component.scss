@@ -1,0 +1,73 @@
+.page-container {
+    padding: 45px;
+    min-height: 100vh;
+    background: #f5f7fb;
+}
+
+.eyebrow {
+    color: #6366b7;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #1e293b;
+    margin: 10px 0;
+}
+
+.subtitle {
+    color: #64748b;
+}
+
+.activity-card {
+    margin-top: 35px;
+    padding: 30px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+}
+
+.activity-card h2 {
+    margin-top: 0;
+    color: #1e293b;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 22px 0;
+    border-top: 1px solid #e2e8f0;
+}
+
+.activity-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.success {
+    background: #22c55e;
+}
+
+.info {
+    background: #3b82f6;
+}
+
+.activity-item h3 {
+    margin: 0;
+    color: #334155;
+}
+
+.activity-item p {
+    margin: 5px 0 0;
+    color: #64748b;
+}
+
+.activity-item span {
+    margin-left: auto;
+    color: #94a3b8;
+    font-size: 13px;
+}

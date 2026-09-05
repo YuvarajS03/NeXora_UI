@@ -1,0 +1,75 @@
+<div class="modal-backdrop">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+                <h2>Add New Device</h2>
+                <p>Register a new device in NeXora</p>
+            </div>
+
+            <button class="close-button" type="button" (click)="closeModal()">
+                ×
+            </button>
+
+        </div>
+
+        <form (ngSubmit)="submit()">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Device ID</label>
+
+                    <input type="text" name="deviceId" [(ngModel)]="device.deviceId" placeholder="NX-1001" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Device Name</label>
+
+                    <input type="text" name="name" [(ngModel)]="device.name" placeholder="Payment Terminal" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Serial Number</label>
+
+                    <input type="text" name="serialNumber" [(ngModel)]="device.serialNumber" placeholder="SN-000123"
+                        required />
+                </div>
+
+                <div class="form-group">
+                    <label>Location</label>
+
+                    <input type="text" name="location" [(ngModel)]="device.location" placeholder="Chennai" required />
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Status</label>
+
+                    <select name="status" [(ngModel)]="device.status">
+                        <option value="ONLINE">ONLINE</option>
+                        <option value="OFFLINE">OFFLINE</option>
+                        <option value="MAINTENANCE">MAINTENANCE</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="modal-actions">
+
+                <button type="button" class="cancel-button" (click)="closeModal()">
+                    Cancel
+                </button>
+
+                <button type="submit" class="submit-button">
+                    Create Device
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
